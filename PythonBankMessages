@@ -1,0 +1,30 @@
+# Inicializa o saldo da conta como zero
+saldo = 0
+
+try:
+    # Loop principal para receber valores de depósito continuamente
+    while True:
+        # Solicita ao usuário um valor de depósito e converte para float
+        valor = float(input())
+
+        # Verifica se o valor é maior que zero para realizar o depósito
+        if valor > 0:
+            # Atualiza o saldo da conta com o valor do depósito
+            saldo += valor
+            # Exibe mensagem de sucesso e o saldo atualizado formatado com duas casas decimais
+            print("Deposito realizado com sucesso!")
+            print(f"Saldo atual: R$ {saldo:.2f}")
+        # Verifica se o valor é zero para encerrar o programa
+        elif valor == 0:
+            # Exibe mensagem informando o encerramento do programa e sai do loop
+            print("Encerrando o programa...")
+            break
+        # Se o valor for negativo, exibe mensagem de erro
+        else:
+            print("Valor invalido! Digite um valor maior que zero.")
+except ValueError:
+    # Captura exceção se o usuário inserir um valor não numérico
+    print("Valor invalido! Digite um valor numerico.")
+except EOFError:
+    # Captura exceção se o programa for encerrado abruptamente (Ctrl+D, por exemplo)
+    print("Encerrando o programa...")
